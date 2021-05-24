@@ -52,6 +52,7 @@ module.exports = [
 ### To do in future
 - [ ] Replaces emails.js with a csv file
 - [ ] Create an `npm test` script which sends you a test email
+- [ ] Store bounced emails somewhere
 
 <br/>
 
