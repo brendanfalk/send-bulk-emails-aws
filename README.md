@@ -52,7 +52,8 @@ module.exports = [
 ### To do in future
 - [ ] Replaces emails.js with a csv file
 - [ ] Create an `npm test` script which sends you a test email
-- [ ] Store bounced emails somewhere
+- [ ] Store message response somewhere (e.g. was email delivered, did it bounce...)
+- [ ] Add unsubscribe link to bottom of emails
 
 <br/>
 
