@@ -34,7 +34,12 @@ var STOP = false;
 var main = async () => {
   // Loop over all emails
   for (var i = 0; i < recipients.length; i++) {
-    console.log(i);
+    try {
+      console.log(i, recipients[i].email);
+    } catch (err) {
+      console.log(`Error logging item ${i}`);
+      console.log(err);
+    }
 
     // Send email
     sendEmail(recipients[i])

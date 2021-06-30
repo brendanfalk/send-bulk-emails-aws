@@ -1,8 +1,8 @@
 {
   "name": "send-bulk-emails-aws",
-  "version": "1.0.0",
-  "description": "",
-  "main": "emails.js",
+  "version": "1.0.2",
+  "description": "Send emails in bulk to ",
+  "main": "index.js",
   "dependencies": {
     "aws-sdk": "^2.912.0",
     "dotenv": "^10.0.0"
@@ -15,8 +15,8 @@
     "type": "git",
     "url": "git+https://github.com/falky97/send-bulk-emails-aws.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Brendan Falk",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/falky97/send-bulk-emails-aws/issues"
   },

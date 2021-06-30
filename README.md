@@ -25,26 +25,28 @@ REGION=us-east-1
 <br/>
 
 ## Send Email
-1. Customize your email in the top of `index.js`. Your email body must be written in HTML/ 
+1. Customize your email in the top of `myEmail.js`. Your email body must be written in HTML/ 
 ```javascript
 var your_name = "Brendan Falk";
 var your_email = "brendan@gmail.com"; // this is the email you verified with AWS SES
 var email_subject = "my witty subject";
 var email_body = ` 
-WRITE YOUR EMAIL IN HTML HERE         
+WRITE YOUR EMAIL IN HTML HERE
 `;
 ```
-2. Add your list of recipients emails as an array in `emails.js`
+
+**Note**: You can also do an a/b test by generating a random int...
+
+
+2. Add your list of recipients emails as an array of objects `recipients.js`. Each recipient object must contain the `email` prop
 
 ```javascript
 module.exports = [
-  "abc@gmail.com",
-  "abc@gmail.com",
-  "abc@gmail.com",
-  "abc@gmail.com",
-  "abc@gmail.com",
+  { email: "abc@gmail.com", name: "ABC DEF"}
+  { email: "zyx@gmail.com", name: "ZYX WVU"}
 ];
 ```
+
 3. When ready, run `npm run send_emails`
 
 <br/>
