@@ -3,18 +3,13 @@ require("dotenv").config();
 // ####################
 // Variables to define
 // ####################
-var your_name = "Brendan Falk";
-var your_email = "brendan@gmail.com"; // must be verified by AWS SES
-var email_subject = "my_email_subject";
-var email_body = `
-WRITE YOUR EMAIL IN HTML HERE
-`;
 
 // Import emails
-var emails = require("./emails");
+var recipients = require("./recipients");
+var myEmail = require("./myEmail");
 
 // ####################
-// END vaiables to degine
+// END vaiables to designate
 // ####################
 
 // Load the AWS SDK for Node.js
@@ -38,15 +33,15 @@ var STOP = false;
 //
 var main = async () => {
   // Loop over all emails
-  for (var i = 0; i < emails.length; i++) {
+  for (var i = 0; i < recipients.length; i++) {
     console.log(i);
 
     // Send email
-    sendEmail(emails[i])
+    sendEmail(recipients[i])
       .then((res) => {})
       .catch((err) => {
         console.log("fail");
-        console.log(emails[i]);
+        console.log(recipients[i]);
         console.log(err);
         STOP = true;
       });
@@ -62,22 +57,22 @@ var main = async () => {
   }
 };
 
-var sendEmail = async (recipientEmail) => {
+var sendEmail = async (recipient) => {
   let params = {
-    Source: `${your_name} <${your_email}>`,
+    Source: `${myEmail.my_name} <${myEmail.my_email}>`,
     Destination: {
-      ToAddresses: [recipientEmail],
+      ToAddresses: [recipient.email || recipient],
     },
     ReplyToAddresses: [],
     Message: {
       Subject: {
         Charset: "UTF-8",
-        Data: email_subject,
+        Data: myEmail.my_email_subject,
       },
       Body: {
         Html: {
           Charset: "UTF-8",
-          Data: email_body,
+          Data: myEmail.my_email_body_function(recipient),
         },
       },
     },
